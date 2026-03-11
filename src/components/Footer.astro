@@ -1,0 +1,54 @@
+---
+import { navigation, site } from "../config/site";
+---
+
+<footer class="g-footer">
+  <div class="container flex-l">
+    <div class="w-33-l">
+      <h2>Plan du site</h2>
+      <nav class="g-footer__nav">
+        <ul>
+          <li><a href="/">Accueil</a></li>
+          {navigation.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+        </ul>
+      </nav>
+    </div>
+    <div class="w-33-l">
+      <h2>{site.name} {site.profession}</h2>
+      <h3>Diplômée de l'Université Paris V</h3>
+      <p>{site.addressLine1}</p>
+      <p>{site.addressLine2}</p>
+      <p>Consultation sur rdv | {site.phoneDisplay}</p>
+    </div>
+    <div class="w-33-l">
+      <h2>Informations légales</h2>
+      <p>N° ADELI : {site.adeli}</p>
+      <p>N° Siret : {site.siret}</p>
+    </div>
+  </div>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Physician",
+    name: site.name,
+    url: site.url,
+    description: "Carole Millot, psychologue Paris 9ème",
+    telephone: "+33699468879",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: site.addressLine1,
+      addressLocality: "Paris",
+      postalCode: "75009",
+      addressCountry: "FR"
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: "48.8791283",
+      longitude: "2.3365036000000146"
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "reservations",
+      telephone: "+33699468879"
+    }
+  })} />
+</footer>

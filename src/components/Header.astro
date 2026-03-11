@@ -1,0 +1,53 @@
+---
+import { navigation, site } from "../config/site";
+
+interface Props {
+  pathname: string;
+}
+
+const { pathname } = Astro.props;
+---
+
+<header class="g-header">
+  <div class="container">
+    <div class="g-header__content">
+      <div class="logo">
+        <a href="/" aria-label="Accueil Carole Millot">
+          {site.name} <span>{site.profession}</span>
+        </a>
+      </div>
+      <button
+        class="hamburger-box"
+        type="button"
+        aria-expanded="false"
+        aria-controls="main-navigation"
+        aria-label="Ouvrir la navigation"
+      >
+        <span class="hamburger-inner"></span>
+      </button>
+      <nav id="main-navigation" class="g-header__nav">
+        <ul>
+          {
+            navigation.map((item) => (
+              <li class={pathname === item.href ? "active" : undefined}>
+                <a href={item.href} class="o-nav__a">{item.label}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  const menuButton = document.querySelector(".hamburger-box");
+  const menu = document.querySelector(".g-header__nav");
+
+  if (menuButton && menu) {
+    menuButton.addEventListener("click", () => {
+      const isActive = menu.classList.toggle("active");
+      menuButton.setAttribute("aria-expanded", String(isActive));
+    });
+  }
+</script>

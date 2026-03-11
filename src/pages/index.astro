@@ -1,0 +1,52 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Sidebar from "../components/Sidebar.astro";
+
+const cards = [
+  {
+    title: "Pourquoi consulter",
+    body:
+      "Périnatalité, infertilité, difficultés pendant l'adolescence, l'enfance ou la petite enfance, difficultés chez les adultes, traumatismes psychiques, handicap, quelles sont les raisons de consulter.",
+    href: "/pourquoi-consulter/",
+  },
+  {
+    title: "Formations",
+    body:
+      "Carole Millot, psychologue diplômée de l'Université Paris 5. Découvrez mes formations et mon expérience en tant que psychologue.",
+    href: "/formation/",
+  },
+  {
+    title: "Le cabinet",
+    body:
+      "En savoir plus sur le cabinet, sa situation géographique, les tarifs et modalités de consultation.",
+    href: "/cabinet-de-psychologie/",
+  },
+];
+---
+
+<BaseLayout
+  title="Carole Millot, Psychologue Paris 9"
+  description="Carole Millot, psychologue. Enfants, adolescents, adultes. Consultation sur rendez-vous | 06 99 46 88 79"
+>
+  <div class="container g-page__content">
+    <main class="g-page__main">
+      <header class="o-page-main__header">
+        <h1>Carole Millot, Psychologue Paris 9</h1>
+        <h2>Diplômée de l'Université Paris V</h2>
+      </header>
+      <hr class="hr" />
+      <div class="flex-l jcsb">
+        {
+          cards.map((card) => (
+            <article class="home-thumbnail">
+              <h2>{card.title}</h2>
+              <p>{card.body}</p>
+              <a href={card.href} class="btn btn-link">{card.title}</a>
+            </article>
+          ))
+        }
+      </div>
+    </main>
+    <Sidebar />
+  </div>
+</BaseLayout>
