@@ -108,9 +108,9 @@ const websiteSchema = {
     <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
   </head>
-  <body class="g-body-container">
+  <body class="flex min-h-screen flex-col">
     <Header pathname={Astro.url.pathname} />
-    <div class="g-page">
+    <div class="g-page grow">
       <slot />
     </div>
     <Footer />

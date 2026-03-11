@@ -12,9 +12,9 @@ const { title, description, intro } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description}>
-  <div class="container g-page__content">
-    <main class="g-page__main">
-      <header class="o-page-main__header">
+  <div class="g-page__content mx-auto my-4 max-w-[1200px] p-4 md:flex md:flex-wrap">
+    <main class="g-page__main w-full space-y-6 md:w-[70%] md:space-y-8">
+      <header class="o-page-main__header space-y-2">
         <h1>{title}</h1>
         {intro && <p set:html={intro} />}
       </header>

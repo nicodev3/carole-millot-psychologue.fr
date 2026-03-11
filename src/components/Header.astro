@@ -9,11 +9,11 @@ const { pathname } = Astro.props;
 ---
 
 <header class="g-header">
-  <div class="container">
-    <div class="g-header__content">
-      <div class="logo">
+  <div class="mx-auto h-full max-w-[1200px] px-2">
+    <div class="flex h-full items-center justify-between">
+      <div class="logo text-2xl transition-transform duration-200 ease-out hover:translate-x-[0.2rem]">
         <a href="/" aria-label="Accueil Carole Millot">
-          {site.name} <span>{site.profession}</span>
+          {site.name} <span class="relative top-[5px] block text-[0.8rem] italic">{site.profession}</span>
         </a>
       </div>
       <button
@@ -22,15 +22,16 @@ const { pathname } = Astro.props;
         aria-expanded="false"
         aria-controls="main-navigation"
         aria-label="Ouvrir la navigation"
+        data-menu-button
       >
         <span class="hamburger-inner"></span>
       </button>
-      <nav id="main-navigation" class="g-header__nav">
+      <nav id="main-navigation" class="g-header__nav" data-menu>
         <ul>
           {
             navigation.map((item) => (
               <li class={pathname === item.href ? "active" : undefined}>
-                <a href={item.href} class="o-nav__a">{item.label}</a>
+                <a href={item.href} class="o-nav__a" data-menu-link>{item.label}</a>
               </li>
             ))
           }
@@ -40,14 +41,6 @@ const { pathname } = Astro.props;
   </div>
 </header>
 
-<script is:inline>
-  const menuButton = document.querySelector(".hamburger-box");
-  const menu = document.querySelector(".g-header__nav");
-
-  if (menuButton && menu) {
-    menuButton.addEventListener("click", () => {
-      const isActive = menu.classList.toggle("active");
-      menuButton.setAttribute("aria-expanded", String(isActive));
-    });
-  }
+<script>
+  import "../scripts/header-menu.ts";
 </script>

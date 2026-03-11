@@ -7,7 +7,8 @@ import ContentPage from "../layouts/ContentPage.astro";
   description="Tarifs, modalités de consultation et situation géographique du cabinet de psychologie de Carole Millot à Paris 9."
   intro="Le cabinet de psychologie est situé au 35 rue Notre Dame de Lorette dans le 9<sup>e</sup> arrondissement de Paris"
 >
-  <iframe
+  <div class="space-y-4">
+    <iframe
     width="425"
     height="350"
     frameborder="0"
@@ -18,20 +19,20 @@ import ContentPage from "../layouts/ContentPage.astro";
     style="border: 1px solid black; max-width: 100%;"
     title="Carte du cabinet"
     loading="lazy"
-  ></iframe>
-  <br />
-  <small>
-    <a href="https://www.openstreetmap.org/?mlat=48.87915&amp;mlon=2.33620#map=18/48.87915/2.33620">
-      Afficher une carte plus grande
-    </a>
-  </small>
+    ></iframe>
+    <small class="block">
+      <a href="https://www.openstreetmap.org/?mlat=48.87915&amp;mlon=2.33620#map=18/48.87915/2.33620">
+        Afficher une carte plus grande
+      </a>
+    </small>
+  </div>
 
-  <h2>Tarifs</h2>
+  <h2 class="mb-3 mt-8">Tarifs</h2>
   <p>Une consultation dure 45 minutes environ.</p>
   <p>Le paiement se fait à la fin de chaque consultation, par chèque ou en espèces.</p>
 
-  <p class="info">
-    <svg xmlns="http://www.w3.org/2000/svg" width="22" viewBox="0 0 100 100.6" aria-hidden="true">
+  <p class="mt-6 inline-flex items-center justify-start bg-[var(--secondary-lightest)] px-8 py-4 shadow-[var(--base-box-shadow)]">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" viewBox="0 0 100 100.6" aria-hidden="true" class="mr-4">
       <path d="M100 50.5a50.19 50.19 0 0 1-50.2 50.1C22.1 100.6-.15 77.7 0 50.2A50 50 0 0 1 50.2.6c3.4-3.5 49.9 7.6 49.8 49.9zm-90.4 0a40.4 40.4 0 1 0 80.8.2c.1-22.3-18-40.6-40-40.7 0-2.6-40.6 3.9-40.8 40.5z"></path>
       <path d="M47.9 78.9c-10.2 0-7.32-3.4-1.7-26.5 2-8.2-3.9 0-5.8-2.6 0-2.3-.28-2.45 9.6-9.4 5-3.53 9.8 1 8.6 5.4-5.25 19.38-6 23.29-5.3 23.8.4.3 4.7-1.5 4.7-1.5.8-.3 3.42.5-1.4 4.6a57.09 57.09 0 0 1-8.7 6.2zm4.7-42.7a7 7 0 1 1 7-7 7 7 0 0 1-7 7z"></path>
     </svg>
