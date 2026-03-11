@@ -1,6 +1,11 @@
 ---
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import "@fontsource/libre-baskerville/400.css";
+import "@fontsource/libre-baskerville/700.css";
+import "@fontsource/open-sans/400.css";
+import "@fontsource/open-sans/600.css";
+import "@fontsource/open-sans/700.css";
 import "../styles/global.css";
 import { site } from "../config/site";
 
@@ -26,12 +31,6 @@ const imageUrl = new URL(image, site.url).toString();
     <title>{title}</title>
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
     <meta property="og:site_name" content={site.name} />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
