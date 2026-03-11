@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 html {
   line-height: 1.15;
@@ -234,6 +236,10 @@ p {
   line-height: 1.35;
 }
 
+address {
+  font-style: normal;
+}
+
 .container {
   margin: 0 auto;
   padding: 0.5rem;
@@ -437,6 +443,15 @@ p {
 
 .g-footer__nav a {
   text-decoration: none;
+}
+
+.g-footer a {
+  color: inherit;
+}
+
+.g-footer__address,
+.g-sidebar__address {
+  margin: 0;
 }
 
 .home-thumbnail {

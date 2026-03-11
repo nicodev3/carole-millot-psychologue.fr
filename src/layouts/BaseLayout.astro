@@ -18,6 +18,64 @@ interface Props {
 const { title, description, image = "/img/carole-millot.svg" } = Astro.props;
 const canonical = new URL(Astro.url.pathname, site.url).toString();
 const imageUrl = new URL(image, site.url).toString();
+const logoUrl = new URL(site.logo, site.url).toString();
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": site.id,
+  name: site.name,
+  image: imageUrl,
+  logo: logoUrl,
+  url: site.url,
+  description: "Cabinet de psychologie à Paris 9 pour enfants, adolescents et adultes.",
+  telephone: "+33699468879",
+  priceRange: "$$",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: site.streetAddress,
+    addressLocality: site.city,
+    postalCode: site.postalCode,
+    addressRegion: site.region,
+    addressCountry: site.country,
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: site.latitude,
+    longitude: site.longitude,
+  },
+  areaServed: [
+    {
+      "@type": "City",
+      name: "Paris",
+    },
+    {
+      "@type": "AdministrativeArea",
+      name: site.neighborhood,
+    },
+  ],
+  availableLanguage: ["fr"],
+  hasMap: site.mapUrl,
+  identifier: [
+    {
+      "@type": "PropertyValue",
+      name: "ADELI",
+      value: site.adeli,
+    },
+    {
+      "@type": "PropertyValue",
+      name: "SIRET",
+      value: site.siret,
+    },
+  ],
+};
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${site.url}/#website`,
+  url: site.url,
+  name: `${site.name} ${site.profession}`,
+  inLanguage: "fr-FR",
+};
 ---
 
 <!doctype html>
@@ -27,16 +85,28 @@ const imageUrl = new URL(image, site.url).toString();
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
     <meta name="format-detection" content="telephone=no" />
+    <meta name="geo.region" content="FR-75" />
+    <meta name="geo.placename" content={`${site.city}, ${site.neighborhood}`} />
+    <meta name="geo.position" content={`${site.latitude};${site.longitude}`} />
+    <meta name="ICBM" content={`${site.latitude}, ${site.longitude}`} />
     <title>{title}</title>
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
     <meta property="og:site_name" content={site.name} />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={imageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
   </head>
   <body class="g-body-container">
     <Header pathname={Astro.url.pathname} />
