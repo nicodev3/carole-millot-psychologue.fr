@@ -1,0 +1,113 @@
+---
+import ContentPage from "../layouts/ContentPage.astro";
+import { site } from "../config/site";
+---
+
+<ContentPage
+  title="Mentions légales"
+  description="Mentions légales, informations CNIL, données personnelles et cookies du site de Carole Millot, psychologue à Paris 9."
+  intro="Cette page présente les informations légales du site, ainsi que les éléments d'information relatifs aux données personnelles et aux cookies, dans un souci de transparence et de conformité avec les recommandations de la CNIL."
+>
+  <section class="space-y-3">
+    <h2>Éditeur du site</h2>
+    <p>
+      Le présent site est édité par <strong>{site.name}</strong>, {site.profession}, exerçant au
+      {` ${site.addressLine1}, ${site.addressLine2}`}.
+    </p>
+    <p>Téléphone : <a href={site.phoneHref}>{site.phoneDisplay}</a></p>
+    <p>N° ADELI : {site.adeli}</p>
+    <p>N° Siret : {site.siret}</p>
+    <p>Directrice de la publication : {site.name}</p>
+  </section>
+
+  <section class="space-y-3">
+    <h2>Hébergement</h2>
+    <p>Le site est hébergé par Netlify, Inc.</p>
+    <p>Adresse : 101 2nd Street, San Francisco, CA 94105, États-Unis.</p>
+  </section>
+
+  <section class="space-y-3">
+    <h2>Propriété intellectuelle</h2>
+    <p>
+      L'ensemble des contenus présents sur ce site, notamment les textes, illustrations, logo,
+      graphismes et éléments de mise en page, est protégé par le droit d'auteur et, plus
+      généralement, par le droit de la propriété intellectuelle.
+    </p>
+    <p>
+      Toute reproduction, représentation, adaptation ou diffusion, totale ou partielle, sans
+      autorisation préalable, est interdite, sauf usage strictement privé ou exceptions prévues par
+      la loi.
+    </p>
+  </section>
+
+  <section class="space-y-3">
+    <h2>Données personnelles</h2>
+    <p>
+      Le site a une finalité essentiellement informative. Il ne comporte pas, à ce jour, de compte
+      utilisateur, d'espace commentaire, de newsletter ni de formulaire de contact.
+    </p>
+    <p>
+      Les données susceptibles d'être traitées via le site sont limitées aux données techniques
+      nécessaires à son fonctionnement, à sa sécurité et à son hébergement, ainsi qu'aux données
+      éventuellement transmises aux services tiers strictement nécessaires à l'affichage de certains
+      contenus externes.
+    </p>
+    <p>
+      La base juridique de ces traitements repose sur l'intérêt légitime de l'éditrice à assurer la
+      mise à disposition, la sécurité et le bon fonctionnement du site.
+    </p>
+    <p>
+      Les destinataires des données sont, dans la limite de leurs attributions respectives,
+      l'éditrice du site et son hébergeur.
+    </p>
+    <p>
+      Les données techniques de connexion et de journalisation sont conservées pendant la durée
+      strictement nécessaire au fonctionnement, à la sécurité du site et au respect des obligations
+      légales applicables.
+    </p>
+  </section>
+
+  <section class="space-y-3">
+    <h2>Cookies et services tiers</h2>
+    <p>
+      À la date de mise à jour de cette page, le site ne met pas en œuvre de cookies publicitaires
+      ni d'outil de mesure d'audience nécessitant le recueil préalable de votre consentement.
+    </p>
+    <p>
+      La page <a href="/cabinet-de-psychologie/">Le cabinet</a> intègre une carte OpenStreetMap.
+      L'affichage de ce contenu peut entraîner des échanges techniques entre votre navigateur et le
+      service tiers concerné. Nous vous invitons à consulter, le cas échéant, la politique de
+      confidentialité de ce service.
+    </p>
+    <p>
+      Si le site venait à utiliser ultérieurement des cookies ou traceurs non strictement
+      nécessaires, cette page et, le cas échéant, le mécanisme de recueil du consentement seraient
+      mis à jour.
+    </p>
+  </section>
+
+  <section class="space-y-3">
+    <h2>Vos droits</h2>
+    <p>
+      Conformément à la réglementation applicable en matière de protection des données personnelles,
+      vous disposez notamment d'un droit d'accès, de rectification, d'effacement, de limitation du
+      traitement et d'opposition, lorsque ces droits sont applicables.
+    </p>
+    <p>
+      Pour toute question relative à vos données personnelles, vous pouvez écrire à {site.name},
+      {` ${site.addressLine1}, ${site.addressLine2}`}, ou téléphoner au
+      {` `}
+      <a href={site.phoneHref}>{site.phoneDisplay}</a>.
+    </p>
+    <p>
+      Vous pouvez également introduire une réclamation auprès de la CNIL :
+      {` `}
+      <a href="https://www.cnil.fr/" rel="noopener noreferrer" target="_blank">www.cnil.fr</a>.
+    </p>
+  </section>
+
+  <section class="space-y-3">
+    <h2>Mise à jour</h2>
+    <p>Dernière mise à jour : 29 mars 2026.</p>
+  </section>
+</ContentPage>
